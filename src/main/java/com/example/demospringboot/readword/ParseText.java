@@ -85,6 +85,13 @@ public class ParseText {
     private static String getTextFromWord2007(byte[] file) {
         String text = "";
         InputStream fis = null;
+        //jdk 8 以上可以使用此方法避免读取大word文档报错问题
+        //ZipSecureFile.setMinInflateRatio( 0 );
+        //jdk 7 及以下暂时无法支持上面方法，超过限定大小则返回
+        int maxSize = 4440000;
+        if (file.length > maxSize) {
+            return null;
+        }
         XWPFDocument doc = null;
         XWPFWordExtractor workbook = null;
         try {

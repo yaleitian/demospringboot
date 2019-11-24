@@ -43,6 +43,8 @@ public class ReadDoc {
                 text = ex.getText();
                 ex.close();
             } else if (FileMagic.valueOf( is ) == FileMagic.OOXML) {
+
+                // jdk 8 以上可以使用此方法避免读取大word文档报错问题，ZipSecureFile.setMinInflateRatio;
                 ZipSecureFile.setMinInflateRatio( 0 );
                 XWPFDocument doc = new XWPFDocument( is );
                 XWPFWordExtractor extractor = new XWPFWordExtractor( doc );
@@ -53,6 +55,7 @@ public class ReadDoc {
                 pdf = PDDocument.load( is );
                 PDFTextStripper stripper = new PDFTextStripper();
                 text = stripper.getText( pdf );
+                pdf.close();
             }
         } catch (Exception e) {
             logger.error( "for file " + filePath, e );

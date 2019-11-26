@@ -16,6 +16,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,5 +136,13 @@ public class WordData {
             }
         }
         return stringList;
+    }
+
+    public static void main(String[] args) {
+        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads( false, false );
+        for (ThreadInfo threadInfo : threadInfos){
+            System.out.println("[" + threadInfo.getThreadId() + "}" + threadInfo.getThreadName());
+        }
     }
 }

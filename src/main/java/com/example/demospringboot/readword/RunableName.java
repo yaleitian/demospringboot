@@ -27,15 +27,15 @@ public class RunableName {
 
     public static final class AccumRunnable implements Runnable {
 
-        private String filePath ;
-        private final String findName;
+        private static String filePath ;
+        private static String findName;
 
         private int result;
 
         final Logger logger = LoggerFactory.getLogger( getClass() );
         public AccumRunnable(String filePath, String findName) {
-            this.filePath = filePath;
-            this.findName = findName;
+            AccumRunnable.filePath = filePath;
+            AccumRunnable.findName = findName;
         }
 
         String txt = "";
@@ -44,7 +44,7 @@ public class RunableName {
 
 
         List<String> list = new ArrayList<>();
-        File file = new File( filePath );
+        File file = new File( filePath);
         File[] arrFiles = file.listFiles();
         int txtLength = 0;
         StringBuilder stringBuilder = null;
@@ -56,7 +56,7 @@ public class RunableName {
                 try {
                     for (File getFile : arrFiles) {
                         fileName = getFile.getName();
-                        filePath = stringBuilder.append(filePath + "/" + fileName).toString();
+                        //filePath = stringBuilder.append(filePath + "/" + fileName).toString();
                         FileInputStream in;
                         in = new FileInputStream( getFile );
                         InputStream is = FileMagic.prepareToCheckMagic( in );

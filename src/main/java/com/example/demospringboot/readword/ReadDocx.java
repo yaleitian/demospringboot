@@ -22,11 +22,11 @@ public class ReadDocx {
         try {
             in = new FileInputStream(file);
             if(fileName.endsWith(docx)){
-                /*
-                直接打开会出现
-                 Zip bomb detected! The file would exceed the max. ratio of compressed file size to the size
-                  of the expanded data.
-                 添加ZipSecureFile.setMinInflateRatio(0);即可
+                /**
+                 * 直接打开会出现
+                 * Zip bomb detected! The file would exceed the max. ratio of compressed file size to the size
+                 * of the expanded data.
+                 * 添加ZipSecureFile.setMinInflateRatio(0);即可
                  */
                 ZipSecureFile.setMinInflateRatio(0);
                 XWPFDocument xwpfDocument = new XWPFDocument(in);

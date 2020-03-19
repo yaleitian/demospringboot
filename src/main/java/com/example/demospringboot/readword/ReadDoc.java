@@ -29,12 +29,12 @@ public class ReadDoc {
      * 某些看起来不是很大的 docx 文件的时候却耗费了大量的内存
      * 其主要就是根据 InputStream 前 8 个字节来判断文件的类型
      *
-     * @param filePath
+     * @param filePathOne
      * @param is
      * @return
      * @throws IOException
      */
-    public String readDoc(String filePath, InputStream is) throws IOException {
+    public String readDoc(String filePathOne, InputStream is) throws IOException {
         String text = "";
         is = FileMagic.prepareToCheckMagic( is );
         try {
@@ -58,7 +58,7 @@ public class ReadDoc {
                 pdf.close();
             }
         } catch (Exception e) {
-            logger.error( "for file " + filePath, e );
+            logger.error( "for file " + filePathOne, e );
         } finally {
             if (is != null) {
                 is.close();

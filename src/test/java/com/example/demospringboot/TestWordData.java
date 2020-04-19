@@ -139,13 +139,13 @@ public class TestWordData {
         int txtLength = 0;
         for (File getFile : arrFiles) {
             fileName = getFile.getName();
-            filePath = filePath + "/" + fileName;
+            String filePathOne = filePath + "/" + fileName;
             //bytes = Files.readAllBytes(new File(getFile.getPath()).toPath());
             //suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
             //txt = parseText.parse( bytes, suffix );
             FileInputStream in;
             in = new FileInputStream( getFile );
-            txt = readDoc.readDoc( filePath, in );
+            txt = readDoc.readDoc( filePathOne, in );
             txtLength += txt.length();
             //判断出现过搜索的字符串
             int num = txt.indexOf( findName );

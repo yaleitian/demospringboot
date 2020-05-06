@@ -13,7 +13,7 @@ public class WordConvertPDF {
     public static void main(String[] args) {
         WordConvertPDF cwoWord = new WordConvertPDF();
         System.out.println("Start");
-        cwoWord.ConvertToPDF("/Users/tianyalei/Downloads/word/信用风险预警系统-项目总结报告(1)(1).docx", "/Users/tianyalei/Downloads/word/信用风险预警系统-项目总结报告(1)(1).pdf");
+        cwoWord.ConvertToPDF("/Users/tianyalei/Downloads/word/关于印发《中原银行驻马店分行信息科技管理委员会工作制度》的通知.doc", "/Users/tianyalei/Downloads/word/关于印发《中原银行驻马店分行信息科技管理委员会工作制度》的通知.pdf");
     }
 
     public void ConvertToPDF(String docPath, String pdfPath) {

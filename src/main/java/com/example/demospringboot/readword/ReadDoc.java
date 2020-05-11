@@ -51,8 +51,7 @@ public class ReadDoc {
                 text = extractor.getText();
                 extractor.close();
             } else if (FileMagic.valueOf( is ) == FileMagic.PDF) {
-                PDDocument pdf = null;
-                pdf = PDDocument.load( is );
+                PDDocument pdf = PDDocument.load( is );
                 PDFTextStripper stripper = new PDFTextStripper();
                 text = stripper.getText( pdf );
                 pdf.close();

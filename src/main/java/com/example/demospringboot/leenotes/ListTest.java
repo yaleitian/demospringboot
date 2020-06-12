@@ -14,21 +14,9 @@ public class ListTest {
         list2.add("C");
         list2.add("B");
         list2.add("D");
-        // 并集
-        //list1.addAll(list2);
-        System.out.println(list1.toString());
-        // 去重复并集
-        list2.removeAll(list1);
-        list1.addAll(list2);
-        System.out.println(list1.toString());
-
-        // 交集
-        list1.retainAll(list2);
-        System.out.println(list1.toString());
-
-        // 差集
-        list1.removeAll(list2);
-        System.out.println(list1.toString());
+        for (String get : list1) {
+            System.out.println(get);
+        }
 
 
     }

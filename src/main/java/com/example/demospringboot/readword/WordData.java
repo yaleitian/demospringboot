@@ -142,7 +142,7 @@ public class WordData {
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
         ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads( false, false );
         for (ThreadInfo threadInfo : threadInfos){
-            System.out.println("[" + threadInfo.getThreadId() + "}" + threadInfo.getThreadName());
+            System.out.println("[" + threadInfo.getThreadId() + "]" + threadInfo.getThreadName());
         }
     }
 }

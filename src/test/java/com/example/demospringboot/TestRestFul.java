@@ -1,6 +1,10 @@
 package com.example.demospringboot;
 
 import com.example.demospringboot.restful.Signature;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,17 +15,18 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
-public class Test {
+public class TestRestFul {
 
     private static final String token = "test01";
-
-    @org.junit.Test
+    @Test
     public void authTest() throws Exception {
         //创建一个httpclient对象
         CloseableHttpClient client = HttpClients.createDefault();
